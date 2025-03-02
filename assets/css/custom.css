@@ -1,0 +1,174 @@
+/* Custom CSS to override default animations */
+
+/* Remove the default pulse animation on right-img */
+.home9 .hero-area .right-img::after {
+  display: none !important;
+  animation: none !important;
+}
+
+/* Make sure our pulse container has the right positioning */
+#pulse-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: visible !important; /* Ensure pulses can expand beyond container */
+}
+
+/* Ensure the image is above the animation */
+#pulse-container img {
+  position: relative;
+  z-index: 3;
+}
+
+/* Remove any overflow hidden that might be applied from parent elements */
+.hero-area, .right-img {
+  overflow: visible !important;
+}
+
+/* Hide any overflow from the canvas that might cause scrollbars */
+canvas {
+  overflow: hidden;
+}
+
+/* Make the logo taller while maintaining aspect ratio */
+.navigation .navbar .navbar-brand img {
+  max-width: 170px;
+  height: auto;
+  max-height: 70px; /* Increased height more */
+  padding: 5px 0; /* Add some vertical padding */
+}
+
+/* Add gradient animation to navbar */
+@keyframes navbarGradient {
+  0% {
+    background: linear-gradient(120deg, #f8f9fa, #ffffff, #f5f5f5);
+    background-size: 200% 100%;
+    background-position: left center;
+  }
+  50% {
+    background: linear-gradient(120deg, #f8f9fa, #ffffff, #f5f5f5);
+    background-size: 200% 100%;
+    background-position: right center;
+  }
+  100% {
+    background: linear-gradient(120deg, #f8f9fa, #ffffff, #f5f5f5);
+    background-size: 200% 100%;
+    background-position: left center;
+  }
+}
+
+.navigation {
+  background: linear-gradient(120deg, #f8f9fa, #ffffff, #f5f5f5);
+  background-size: 200% 100%;
+  animation: navbarGradient 15s ease infinite;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.navigation.stiky-nav {
+  background: linear-gradient(120deg, #f8f9fa, #ffffff, #f5f5f5);
+  background-size: 200% 100%;
+  animation: navbarGradient 15s ease infinite;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Additional styling for navbar elements */
+.home9 .navigation .navbar #mainmenu ul .nav-item .nav-link {
+  color: #333 !important;
+  font-weight: 500;
+}
+
+/* Hide preloader completely */
+.preloader, #preloader {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  z-index: -9999 !important;
+}
+
+/* Beating Heart Preloader Animation */
+.preloader-heart {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  margin: 0 auto;
+  transform-origin: center;
+  animation: heart-beat 1.2s ease-in-out infinite;
+}
+
+.heart-loader {
+  background-color: rgb(255, 59, 48);
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 0 0 0 0;
+  position: absolute;
+}
+
+.heart-left {
+  border-radius: 50px 0 0 50px;
+  transform: rotate(45deg);
+  transform-origin: right bottom;
+  left: 14px;
+}
+
+.heart-right {
+  border-radius: 0 50px 50px 0;
+  transform: rotate(-45deg);
+  transform-origin: left bottom;
+  right: 14px;
+}
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+/* Custom loading text for preloader */
+.loading-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+  text-align: center;
+  margin-top: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Override default preloader styles */
+.preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide the original cube loader */
+.cube-wrapper {
+  display: none;
+} 
